@@ -9,7 +9,7 @@
         	<div class="panel panel-success">
                 <div class="panel-heading" style="text-align: center">
 				
-						<h4>Welcome to verifyme.space</h4> 
+						<h4>Welcome to validateme.ng</h4> 
 						
 				</div>
 
@@ -53,7 +53,7 @@
             <div class="panel panel-success">
                 <div class="panel-heading" style="text-align: center">
 				
-						<h4>Congratulations! your verifyme.space account has been completely setup, start adding students <a class="btn btn-sm btn-primary" href="/dashboard">Go to Dashboard</a> </h4>
+						<h4>Congratulations! your validatemg.ng account has been completely setup, start adding students <a class="btn btn-sm btn-primary" href="/dashboard">Go to Dashboard</a> </h4>
 						
 				</div>
 

@@ -7,7 +7,7 @@
             <div class="panel panel-success">
                 <div class="panel-heading" style="text-align: center">
 				
-						<h4>Welcome to verifyme.space</h4>
+						<h4>Welcome to validateme.ng</h4>
 						<h5>A simple platform that allows school owners create secured online validation of their certificates. If you are a school owner, open an account and start adding your student details. Their details is used to create unique QR code that can be printed on their certificates for verification. <p> When the QR code is scanned, their details is shown.</p>
 						<p>With this system, you add more credibility to your institution and certification</p>
 						<p>
