@@ -118,7 +118,7 @@
 						<div class="col-md-12">
 							<div class="col-md-5">
 								
-								Students Count: {{ $instStuCount }}
+								{{--  Students Count: {{ $instStuCount }}  --}}
 								
 							</div>
 							<div class="col-md-5">
@@ -136,20 +136,20 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="col-md-5">
-								<p>Subscription Type: {{ $userSub->sub_type }} </p>
+								{{--  <p>Subscription Type: {{ $userSub->sub_type }} </p>
 								<p>Activated on: {{ $userSub->created_at }} </p>
 								<p>Expires on: {{ $userSub->expires_on }} </p>
-								<p>Status: {{ $userSub->status }} </p>
+								<p>Status: {{ $userSub->status }} </p>  --}}
 
 							</div>
 							<div class="col-md-5">
-							@if($userSub->sub_type == "free")
+							{{--  @if($userSub->sub_type == "free")
 								<h3>Why you should upgrade</h3>
 								@else
 								Did you know as a premium user you can request features?<br>
 								Have anything in mind? send us an email: feature@verifyme.space
 
-							@endif
+							@endif  --}}
 							</div>
 						</div>
 					</div>

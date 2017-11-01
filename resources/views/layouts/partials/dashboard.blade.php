@@ -39,7 +39,7 @@
 					  <div class="col-lg-12 col-md-12 col-sm-12s" style="text-align: center">
 						
 						<div class="text-primary center userCount" style="font-size: 100px">
-						 	{{ $stuCount }}
+						 	{{--  {{ $stuCount }}  --}}
 						</div>
 					  </div>
 
