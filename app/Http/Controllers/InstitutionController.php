@@ -90,9 +90,11 @@ class InstitutionController extends Controller
 	public static function getInstStudents(){
 		$instUser = InstitutionUser::where('user_id','=',Auth::user()->id)->get();
 		
-		if($instUser){
+		if(count($instUser) > 0){
 
 				return StC::getInstStudent($instUser[0]->inst_id);
+		}else{
+			return 0;
 		}
 	}
 

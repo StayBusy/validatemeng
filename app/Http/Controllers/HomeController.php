@@ -32,22 +32,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-                
+                       
        if(IC::getUserInst()){
              $inst = IC::getUserInst()->id;
        }else{
             $inst = "0";
        } 
-
+       
        if(NC::getUserNotification()){
+
              $notice = NC::getUserNotification();
              //after getting notice
              //update the notice status
        }else{
-            $notice = "0";           
+            $notice = "";         
        }
-         
+        
        if(SC::getUserSub()){
              $sub = SC::getUserSub()->id;
        }else{
@@ -60,12 +60,12 @@ class HomeController extends Controller
        }else{
             $instStuCount = "0";
        }    
-
+    //    return $instStuCount;
        $noticeCount = NC::countUserNotification();
 
         return view('home')->with('inst',$inst)
                             ->with('sub',$sub)
-                            ->with('instStuCount',$stu)
+                            ->with('instStuCount',$instStuCount)
                             ->with('notice',$notice)
                             ->with('noticeCount',$noticeCount)
                             ->with('msg',$this->msg);
