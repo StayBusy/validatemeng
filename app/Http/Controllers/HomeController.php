@@ -65,7 +65,7 @@ class HomeController extends Controller
 
         return view('home')->with('inst',$inst)
                             ->with('sub',$sub)
-                            ->with('instStuCount',$instStuCount)
+                            ->with('stu',$instStuCount)
                             ->with('notice',$notice)
                             ->with('noticeCount',$noticeCount)
                             ->with('msg',$this->msg);
@@ -75,7 +75,8 @@ class HomeController extends Controller
         // Check if institution is set
         $inst = IC::getUserInst();
 
-        if(isset($inst->id) == "" || $inst == NULL){
+        if(isset($inst->id) == "" || $inst == NULL){ 
+          
            //if not set, set insitution
                 if(IC::addInstitution($_POST)){
                     $this->msg = "Your institution has been added";

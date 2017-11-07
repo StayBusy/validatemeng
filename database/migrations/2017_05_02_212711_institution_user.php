@@ -16,7 +16,7 @@ class InstitutionUser extends Migration
             $table->increments('id');
             $table->string('inst_id');
             $table->string('user_id');                   
-            $table->string('status');         
+            $table->string('status')->nullable();         
             $table->timestamps();
         });
     }
