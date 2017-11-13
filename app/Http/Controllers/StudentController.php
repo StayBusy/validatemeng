@@ -33,12 +33,11 @@ class StudentController extends Controller
 
 	public function addStudent(Request $request){
 		$validate = $this->validator($request->all());
-
 		if($validate->fails()){
 			return back()->withErrors($validate)
                         ->withInput($request->all());
 		}
-		if($this->create($request->all())){
+		if($this->create($request)){
 			
 			$message = "Student data added";
 		
@@ -50,49 +49,49 @@ class StudentController extends Controller
 		return HC::dashboard();
 	}
 
-	protected function create(array $data){
-		
-		return Students::create([
-			'firstname' => $data['firstname'], 
-			'lastname' => $data['lastname'],
-			'othername' => $data['othername'],
-			'phone' => $data['phone'],
-			'email' => $data['email'],
-			'sex' => $data['sex'],
-			'dob' => $data['dob'], 
-			'country_id' => $data['country_id'],
-			'religion' => $data['religion'],
-			'maritalstatus' => $data['maritalstatus'],
-			'city' => $data['city'],
-			'state_id' => $data['state_id'],
-			'fathername' => $data['fathername'],
-			'mothername' => $data['mothername'],
-			'motherwork' => $data['motherwork'],
-			'fatherwork' => $data['fatherwork'],
-			'parentaddress' => $data['parentaddress'],
-			'language' => $data['language'],
-			'nokname' => $data['nokname'],
-			'nokcontact' => $data['nokcontact'],
-			'faculty' => $data['faculty'],
-			'department' => $data['department'],
-			'course' => $data['course'],
-			'specilization' => $data['specilization'],
-			'duration' => $data['duration'],
-			'grade' => $data['grade'],
-			'startdate' => $data['startdate'],
-			'enddate' => $data['enddate'],
-			'facultyhead' => $data['facultyhead'],
-			'hod' => $data['hod'],
-			'disability' => $data['disability'],
-			'specialneeds' => $data['specialneeds'],
-			'disability_specify' => $data['disability_specify'],
-			'specialneeds_specify' => $data['specialneeds_specify'],
-			'ca' => $data['ca'],
-			'project' => $data['project'],
-			'uid' => '1',
-			'school' => IC::getUserInst()->inst_id,
-			'user_id' => Auth::user()->id
-		]);
+	protected function create($request){
+			$student = new Students;
+			$student->firstname = $request->firstname; 
+			$student->lastname = $request->lastname;
+			$student->othername = $request->othername;
+			$student->phone = $request->phone;
+			$student->email = $request->email;
+			$student->sex = $request->sex;
+			$student->dob = $request->dob; 
+			$student->country_id = $request->country_id;
+			$student->religion = $request->religion;
+			$student->maritalstatus = $request->maritalstatus;
+			$student->city = $request->city;
+			$student->state_id = $request->state_id;
+			$student->fathername = $request->fathername;
+			$student->mothername = $request->mothername;
+			$student->motherwork = $request->motherwork;
+			$student->fatherwork = $request->fatherwork;
+			$student->parentaddress = $request->parentaddress;
+			$student->language = $request->language;
+			$student->nokname = $request->nokname;
+			$student->nokcontact = $request->nokcontact;
+			$student->faculty = $request->faculty;
+			$student->department = $request->department;
+			$student->course = $request->course;
+			$student->specilization = $request->specilization;
+			$student->duration = $request->duration;
+			$student->grade = $request->grade;
+			$student->startdate = $request->startdate;
+			$student->enddate = $request->enddate;
+			$student->facultyhead = $request->facultyhead;
+			$student->hod = $request->hod;
+			$student->disability = $request->disability;
+			$student->specialneeds = $request->specialneeds;
+			$student->disability_specify = $request->disability_specify;
+			$student->specialneeds_specify = $request->specialneeds_specify;
+			$student->ca = $request->ca;
+			$student->project = $request->project;
+			$student->uid = $request->uid;
+			$student->schoolid = IC::getUserInst()->inst_id;
+			$student->user_id = Auth::user()->id;
+			$student->save();
+			return $student;
 		
 	}
 

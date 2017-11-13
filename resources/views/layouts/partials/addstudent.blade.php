@@ -292,7 +292,7 @@
 
 								 <div class="form-group{{ $errors->has('startdate') ? ' has-error' : '' }}">
 									<label for="startdate">Start Date</label>
-									<input type="text" class="form-control" id="startdate" value="{{old('startdate')}}" name="startdate">
+									<input type="date" class="form-control" id="startdate" value="{{old('startdate')}}" name="startdate">
 									@if ($errors->has('startdate'))
 										<span class="help-block">
 												<strong>{{ $errors->first('startdate') }}</strong>

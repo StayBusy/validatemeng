@@ -21,11 +21,11 @@ class CreateStudentTable extends Migration
             $table->string('email',100)->unique();
             $table->string('sex');
             $table->date('dob');
-            $table->unsignedinteger('country_id');
+            $table->integer('country_id')->unsigned();
             $table->string('religion');
             $table->string('maritalstatus');
             $table->string('city');
-            $table->unsignedinteger('state_id');
+            $table->integer('state_id')->unsigned();
             $table->string('fathername');
             $table->string('mothername');
             $table->string('fatherwork');
@@ -38,7 +38,7 @@ class CreateStudentTable extends Migration
             $table->string('department');
             $table->string('course');
             $table->string('specilization');
-            $table->unsignedinteger('duration');
+            $table->integer('duration')->unsigned();
             $table->string('grade');
             $table->date('startdate');
             $table->date('enddate');
@@ -51,8 +51,8 @@ class CreateStudentTable extends Migration
             $table->string('ca');
             $table->string('project');
             $table->string('uid');
-            $table->string('school');
-            $table->unsignedinteger('user_id');            
+            $table->string('schoolid');
+            $table->integer('user_id')->unsigned();            
             $table->timestamps();
         });
     }

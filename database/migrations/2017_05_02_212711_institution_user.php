@@ -14,8 +14,8 @@ class InstitutionUser extends Migration
     {
          Schema::create('institution_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('inst_id');
-            $table->string('user_id');                   
+            $table->unsignedinteger('inst_id');
+            $table->unsignedinteger('user_id');                   
             $table->string('status')->nullable();         
             $table->timestamps();
         });
