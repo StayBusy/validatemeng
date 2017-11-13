@@ -9,7 +9,7 @@ use App\Students;
 use Auth;
 use App\Http\Controllers\InstitutionController as IC;
 use App\Http\Controllers\HomeController as HC;
-
+use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
@@ -88,6 +88,47 @@ class StudentController extends Controller
 		]);
 		
 	}
+
+
+	protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'firstname' => 'required|string|max:255',
+			'lastname' => 'required|string|max:255',
+			'othername' => 'string|max:255',
+            'email' => 'required|string|email|max:255|unique:students',
+			'phone' => 'required|string|max:255',
+			'sex' => 'required|string|max:255',
+			'dob' => 'required|date',
+			'country' => 'required|string|max:255',
+			'religion' => 'required|string|max:255',
+			'maritalstatus' => 'required|string|max:255',
+			'city' => 'required|string|max:255',
+			'state' => 'required|string|max:255',
+			'fathername' => 'required|string|max:255',
+			'mothername' => 'required|string|max:255',
+			'fatherwork' => 'required|string|max:255',
+			'motherwork' => 'required|string|max:255',
+			'parentaddress' => 'required|string|max:255',
+			'nokname' => 'required|string|max:255',
+			'language' => 'required|string|max:255',
+			'nokcontact' => 'required|string|max:255',
+			'faculty' => 'required|string|max:255',
+			'department' => 'required|string|max:255',
+			'course' => 'required|string|max:255',
+			'specialization' => 'required|string|max:255',
+			'duration' => 'required|string|max:255',
+			'grade' => 'required|string|max:255',
+			'startdate' => 'required|date',
+			'enddate' => 'required|date',
+			'facultyhead' => 'required|string|max:255',
+			'hod' => 'required|string|max:255',
+			'disability' => 'required|string|max:255',
+			'specialneeds' => 'required|string|max:255',
+			'ca' => 'required|string|max:255',
+			'project' => 'required|string|max:255',
+        ]);
+    }
 
 }
 
