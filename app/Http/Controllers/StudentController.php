@@ -31,9 +31,14 @@ class StudentController extends Controller
 		return Students::where('schoolid','=',$inst_id)->get();
 	}
 
-	public function addStudent(){
-		
-		if($this->create($_POST)){
+	public function addStudent(Request $request){
+		$validate = $this->validator($request->all());
+
+		if($validate->fails()){
+			return back()->withErrors($validate)
+                        ->withInput($request->all());
+		}
+		if($this->create($request->all())){
 			
 			$message = "Student data added";
 		
@@ -55,11 +60,11 @@ class StudentController extends Controller
 			'email' => $data['email'],
 			'sex' => $data['sex'],
 			'dob' => $data['dob'], 
-			'country' => $data['country'],
+			'country_id' => $data['country_id'],
 			'religion' => $data['religion'],
 			'maritalstatus' => $data['maritalstatus'],
 			'city' => $data['city'],
-			'state' => $data['state'],
+			'state_id' => $data['state_id'],
 			'fathername' => $data['fathername'],
 			'mothername' => $data['mothername'],
 			'motherwork' => $data['motherwork'],
@@ -80,11 +85,13 @@ class StudentController extends Controller
 			'hod' => $data['hod'],
 			'disability' => $data['disability'],
 			'specialneeds' => $data['specialneeds'],
+			'disability_specify' => $data['disability_specify'],
+			'specialneeds_specify' => $data['specialneeds_specify'],
 			'ca' => $data['ca'],
 			'project' => $data['project'],
 			'uid' => '1',
-			'schoolid' => IC::getUserInst()->inst_id,
-			'userid' => Auth::user()->name
+			'school' => IC::getUserInst()->inst_id,
+			'user_id' => Auth::user()->id
 		]);
 		
 	}
@@ -100,11 +107,11 @@ class StudentController extends Controller
 			'phone' => 'required|string|max:255',
 			'sex' => 'required|string|max:255',
 			'dob' => 'required|date',
-			'country' => 'required|string|max:255',
+			'country_id' => 'required|numeric',
 			'religion' => 'required|string|max:255',
 			'maritalstatus' => 'required|string|max:255',
 			'city' => 'required|string|max:255',
-			'state' => 'required|string|max:255',
+			'state_id' => 'required|numeric',
 			'fathername' => 'required|string|max:255',
 			'mothername' => 'required|string|max:255',
 			'fatherwork' => 'required|string|max:255',
@@ -116,7 +123,7 @@ class StudentController extends Controller
 			'faculty' => 'required|string|max:255',
 			'department' => 'required|string|max:255',
 			'course' => 'required|string|max:255',
-			'specialization' => 'required|string|max:255',
+			'specilization' => 'required|string',
 			'duration' => 'required|string|max:255',
 			'grade' => 'required|string|max:255',
 			'startdate' => 'required|date',
@@ -125,8 +132,7 @@ class StudentController extends Controller
 			'hod' => 'required|string|max:255',
 			'disability' => 'required|string|max:255',
 			'specialneeds' => 'required|string|max:255',
-			'ca' => 'required|string|max:255',
-			'project' => 'required|string|max:255',
+
         ]);
     }
 
