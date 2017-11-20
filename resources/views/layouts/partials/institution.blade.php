@@ -5,7 +5,7 @@
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
-	<form method="POST" action="/addInstitution">
+	<form method="POST" action="{{route('institution.add')}}">
 	 {{ csrf_field() }}
     <div class="modal-content">
       <div class="modal-header">

@@ -18,18 +18,18 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::get('/logout', 'Auth\AuthController@logout');
-Route::get('/home', 'HomeController@index');
-Route::get('/dashboard', 'HomeController@dashboard');
-Route::get('/students', 'HomeController@allInstStudents');
+Route::get('/logout', 'Auth\AuthController@logout')->name('logout');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@dashboard')->('dashboard');
+Route::get('/students', 'HomeController@allInstStudents')->name('students.list');
 
 //post requests
 
 Route::post('/addstudent','StudentController@addstudent');
-Route::post('/addInstitution','HomeController@addInstitution');
+Route::post('/addInstitution','HomeController@addInstitution')->name('institution.add');
 Route::post('/activateFreePlan','HomeController@activateFreePlan')->name('activeplan.free');
-Route::post('/clearNotification','HomeController@clearNotice');
+Route::post('/clearNotification','HomeController@clearNotice')->name('notice.clear');
 
 //tester
 
-Route::get('/test','InstitutionController@getInstStudents');
+Route::get('/test','InstitutionController@getInstStudents')->name('institution.students.list');
