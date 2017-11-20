@@ -27,7 +27,7 @@ Route::get('/students', 'HomeController@allInstStudents');
 
 Route::post('/addstudent','StudentController@addstudent');
 Route::post('/addInstitution','HomeController@addInstitution');
-Route::post('/activateFreePlan','HomeController@activateFreePlan');
+Route::post('/activateFreePlan','HomeController@activateFreePlan')->name('activeplan.free');
 Route::post('/clearNotification','HomeController@clearNotice');
 
 //tester

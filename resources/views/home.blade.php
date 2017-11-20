@@ -29,7 +29,7 @@
             @if($sub == "0")
             <div class="panel panel-warning">
                 <div class="panel-heading" style="text-align: center">
-					<form action="/activateFreePlan" method="POST">
+					<form action="{{route('activeplan.free')}}" method="POST">
 					 {{ csrf_field() }}
 						<input type="hidden" name="sub_type" value="free" />
 						<h4>You have not activated any plan, do so now <button class="btn btn-sm btn-primary" type="submit">Activate Free Plan</button> 
